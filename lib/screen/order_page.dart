@@ -48,8 +48,7 @@ class _OrderPageState extends State<OrderPage> {
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Gambar dan Detail Makanan
+          children: [ // Gambar dan Detail Makanan
             Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -88,8 +87,7 @@ class _OrderPageState extends State<OrderPage> {
             ),
             const SizedBox(height: 32),
 
-            // Input Jumlah Pesanan
-            TextField(
+            TextField( // Input Jumlah Pesanan
               controller: _quantityController,
               decoration: const InputDecoration(
                 labelText: 'Masukkan Jumlah',
@@ -102,18 +100,23 @@ class _OrderPageState extends State<OrderPage> {
             ),
             const SizedBox(height: 32),
 
-            // Tombol Pesan (Contoh)
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-              ),
-              onPressed: () {
-                // Logika untuk aksi pesan, misalnya tampilkan dialog
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: const Text('Pesanan Berhasil'),
-                    content: Text('Anda memesan ${widget.menu.name} sebanyak ${_quantityController.text} porsi.'),
+            SizedBox( // Tombol Pesan (Contoh)
+              width: double.infinity,
+              height: 40,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  elevation: 0,
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Pesanan Berhasil'),
+                      content: Text('Anda memesan ${widget.menu.name} sebanyak ${_quantityController.text} porsi.'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
@@ -121,13 +124,20 @@ class _OrderPageState extends State<OrderPage> {
                         ),
                       ],
                     ),
-                );
-              },
-              child: const Text('Pesan Sekarang'),
+                  );
+                },
+                child: const Text(
+                  'Pesan Sekarang',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ),
             const SizedBox(height: 24),
 
-            // Tampilan Total Harga
             Text(
               'Total Harga: Rp $_totalPrice',
               textAlign: TextAlign.center,
