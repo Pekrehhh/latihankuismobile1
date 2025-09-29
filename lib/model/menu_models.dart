@@ -1,4 +1,3 @@
-
 class Menu {
   final String imageUrl;
   final String name;

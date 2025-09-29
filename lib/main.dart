@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // Halaman awal aplikasi adalah LoginPage
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
     );
